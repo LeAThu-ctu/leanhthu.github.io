@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Trang giới thiệu cá nhân của Lê Anh Thư - sinh viên Đại học Cần Thơ, ngành Truyền thông đa phương tiện.">
+  <title>Lê Anh Thư | Trang giới thiệu cá nhân</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --primary: #1769e0;
+      --primary-dark: #0d47a1;
+      --secondary: #5aa9ff;
+      --light: #f4f8ff;
+      --white: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --shadow: 0 12px 35px rgba(15, 76, 129, 0.10);
+
+      /* Màu đồng nhất cho tên Lê Anh Thư */
+      --name-color: #1769e0;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background: var(--light);
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ĐỒNG NHẤT MÀU CHỮ TÊN LÊ ANH THƯ */
+    .brand-name {
+      color: var(--name-color) !important;
+      font-weight: inherit;
+    }
+
+    /* NAVBAR */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(226, 232, 240, .8);
+    }
+
+    .nav {
+      max-width: 1150px;
+      margin: auto;
+      height: 72px;
+      padding: 0 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--name-color);
+      letter-spacing: .5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      font-size: .95rem;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      transition: .25s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      padding: 140px 22px 80px;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(90, 169, 255, .25), transparent 30%),
+        radial-gradient(circle at 85% 80%, rgba(23, 105, 224, .16), transparent 30%),
+        linear-gradient(135deg, #eef6ff, #ffffff);
+    }
+
+    .hero-content {
+      max-width: 1150px;
+      width: 100%;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 7px 15px;
+      border-radius: 999px;
+      background: #e2efff;
+      color: var(--primary-dark);
+      font-weight: 700;
+      font-size: .88rem;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+      line-height: 1.15;
+      margin-bottom: 18px;
+      color: #0f3f7c;
+    }
+
+    .hero h2 {
+      font-size: 1.25rem;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      max-width: 680px;
+      color: #475569;
+      font-size: 1.05rem;
+      margin-bottom: 28px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 21px;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: .25s;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 8px 20px rgba(23, 105, 224, .25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: var(--primary-dark);
+    }
+
+    .btn-outline {
+      background: white;
+      border-color: #bfdbfe;
+      color: var(--primary-dark);
+    }
+
+    .btn-outline:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+    }
+
+    /* PROFILE CARD & PHOTO */
+    .profile-card {
+      min-height: 400px;
+      border-radius: 30px;
+      background: linear-gradient(145deg, #ffffff, #eaf4ff);
+      box-shadow: var(--shadow);
+      border: 1px solid #dbeafe;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 35px 25px;
+    }
+
+    .photo-wrapper {
+      position: relative;
+      width: 210px;
+      height: 250px;
+      margin-bottom: 20px;
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: 20px;
+      border: 5px solid white;
+      box-shadow: 0 14px 30px rgba(23, 105, 224, .2);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-photo:hover {
+      transform: scale(1.03);
+    }
+
+    .profile-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+
+    .profile-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* GENERAL SECTIONS */
+    section {
+      padding: 90px 22px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title .small {
+      color: var(--primary);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: .8rem;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 7px 0 10px;
+      color: #123d70;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: auto;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: #164e86;
+    }
+
+    .info-list {
+      list-style: none;
+    }
+
+    .info-list li {
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .info-list li:last-child {
+      border-bottom: 0;
+    }
+
+    .info-list strong {
+      display: inline-block;
+      min-width: 120px;
+      color: #334155;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      max-width: 850px;
+      margin: auto;
+      position: relative;
+      padding-left: 28px;
+      border-left: 3px solid #bfdbfe;
+    }
+
+    .timeline-item {
+      position: relative;
+      background: white;
+      padding: 24px;
+      margin-bottom: 24px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -39px;
+      top: 28px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 4px solid #dbeafe;
+    }
+
+    .timeline-item .year {
+      color: var(--primary);
+      font-weight: 800;
+      font-size: .9rem;
+    }
+
+    .timeline-item h3 {
+      margin: 4px 0;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+    }
+
+    /* SKILLS */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: white;
+      padding: 25px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .skill-icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .skill-card h3 {
+      color: #164e86;
+      margin-bottom: 7px;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+    }
+
+    /* EXPERIENCE */
+    .experience {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .experience .card {
+      transition: .25s;
+    }
+
+    .experience .card:hover,
+    .skill-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .experience ul {
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    /* HOBBIES */
+    .hobbies {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .hobby {
+      background: white;
+      border-radius: 20px;
+      padding: 35px 20px;
+      text-align: center;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: .25s;
+    }
+
+    .hobby:hover {
+      transform: translateY(-5px);
+    }
+
+    .hobby .emoji {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .hobby h3 {
+      color: #164e86;
+    }
+
+    .hobby p {
+      color: var(--muted);
+      margin-top: 5px;
+    }
+
+    /* ACHIEVEMENT */
+    .achievement {
+      text-align: center;
+      max-width: 850px;
+      margin: auto;
+      background: linear-gradient(135deg, #eaf4ff, #ffffff);
+      border: 1px solid #bfdbfe;
+      padding: 38px;
+      border-radius: 24px;
+    }
+
+    .achievement h3 {
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+    }
+
+    .achievement p {
+      color: var(--muted);
+    }
+
+    .coming-soon {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 8px 15px;
+      background: white;
+      border-radius: 999px;
+      color: var(--primary);
+      font-weight: 700;
+      border: 1px solid #bfdbfe;
+    }
+
+    /* CONTACT */
+    .contact-box {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      background: #0f3f7c;
+      color: white;
+      border-radius: 28px;
+      padding: 50px 30px;
+      box-shadow: 0 18px 40px rgba(15, 63, 124, .2);
+    }
+
+    .contact-box h2 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .contact-box p {
+      color: #dbeafe;
+      margin-bottom: 20px;
+    }
+
+    .email {
+      display: inline-block;
+      padding: 12px 20px;
+      background: white;
+      color: var(--primary-dark);
+      border-radius: 12px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      word-break: break-word;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #092d59;
+      color: #cbd5e1;
+      text-align: center;
+      padding: 25px 20px;
+      font-size: .9rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 850px) {
+      .nav-links {
+        gap: 12px;
+        font-size: .8rem;
+      }
+
+      .hero-content,
+      .about-grid,
+      .skills,
+      .experience {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 120px;
+      }
+
+      .hobbies {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-card {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .nav {
+        height: auto;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        align-items: flex-start;
+        gap: 12px;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 4px;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      section {
+        padding: 65px 16px;
+      }
+
+      .card,
+      .skill-card,
+      .timeline-item {
+        padding: 21px;
+      }
+
+      .info-list strong {
+        min-width: 100px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- THANH ĐIỀU HƯỚNG -->
+  <header>
+    <nav class="nav">
+      <!-- Tên thương hiệu hiển thị đồng nhất 1 màu -->
+      <a class="logo brand-name" href="#home">Lê Anh Thư</a>
+
+      <ul class="nav-links">
+        <li><a href="#home">Trang chủ</a></li>
+        <li><a href="#about">Cá nhân</a></li>
+        <li><a href="#education">Học tập</a></li>
+        <li><a href="#skills">Chuyên môn</a></li>
+        <li><a href="#experience">Kinh nghiệm</a></li>
+        <li><a href="#hobbies">Sở thích</a></li>
+        <li><a href="#achievements">Thành tích</a></li>
+        <li><a href="#contact">Liên hệ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- TRANG CHỦ -->
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+
+        <div>
+          <span class="badge">✨ PERSONAL WEBSITE</span>
+
+          <!-- Tiêu đề với tên Lê Anh Thư đồng nhất màu sắc -->
+          <h1>Xin chào, mình là<br><span class="brand-name">Lê Anh Thư</span></h1>
+
+          <h2>Sinh viên Truyền thông đa phương tiện</h2>
+
+          <p>
+            Chào mừng bạn đến với trang giới thiệu cá nhân của mình.
+            Đây là nơi mình chia sẻ một số thông tin về bản thân,
+            quá trình học tập, lĩnh vực chuyên môn, sở thích và định hướng
+            phát triển trong tương lai.
+          </p>
+
+          <div class="buttons">
+            <a class="btn btn-primary" href="#about">Khám phá về mình</a>
+            <a class="btn btn-outline" href="#contact">Liên hệ</a>
+          </div>
+        </div>
+
+        <!-- THẺ CÁ NHÂN VỚI HÌNH ẢNH MỚI CỦA LÊ ANH THƯ -->
+        <div class="profile-card">
+          <div class="photo-wrapper">
+            <img src="./ATL1.jpg" alt="Lê Anh Thư" class="profile-photo"
+              onerror="this.onerror=null; this.src='https://placehold.co/400x500/1769e0/ffffff?text=L%C3%AA+Anh+Th%C6%B0';" />
+          </div>
+          <h3 class="brand-name">Lê Anh Thư</h3>
+          <p>Truyền thông đa phương tiện</p>
+          <p>Đại học Cần Thơ</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- THÔNG TIN CÁ NHÂN -->
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <div class="small">01 • About me</div>
+          <h2>Thông tin cá nhân</h2>
+          <p>Một vài thông tin cơ bản về mình.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="card">
+            <h3>👋 Đôi nét về bản thân</h3>
+            <p>
+              Mình là <strong class="brand-name">Lê Anh Thư</strong>, hiện đang là sinh viên
+              ngành <strong>Truyền thông đa phương tiện</strong> tại
+              <strong>Đại học Cần Thơ</strong>.
+            </p>
+            <br>
+            <p>
+              Mình là người yêu thích việc khám phá những điều mới,
+              đặc biệt là các công cụ công nghệ và những hoạt động sáng tạo.
+              Mình luôn cố gắng học hỏi, thực hành và hoàn thiện bản thân
+              trong quá trình học tập.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>📌 Thông tin</h3>
+            <ul class="info-list">
+              <li><strong>Họ tên:</strong> <span class="brand-name" style="font-weight: 700;">Lê Anh Thư</span></li>
+              <li><strong>Ngày sinh:</strong> 20/06/2008</li>
+              <li><strong>Địa chỉ:</strong> Phường Vị Thanh, Thành phố Cần Thơ</li>
+              <li><strong>Trường:</strong> Đại học Cần Thơ</li>
+              <li><strong>Ngành:</strong> Truyền thông đa phương tiện</li>
+              <li><strong>Email:</strong> thuB2605378@student.ctu.edu.vn</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HỌC TẬP -->
+    <section id="education">
+      <div class="container">
+        <div class="section-title">
+          <div class="small">02 • Education</div>
+          <h2>Quá trình học tập</h2>
+          <p>Hành trình học tập và phát triển kiến thức của mình.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="year">Hiện tại</div>
+            <h3>🎓 Đại học Cần Thơ</h3>
+            <p><strong>Ngành:</strong> Truyền thông đa phương tiện</p>
+            <p>
+              Hiện tại mình đang tập trung học tập kiến thức chuyên ngành,
+              đồng thời rèn luyện các kỹ năng công nghệ, thiết kế và sáng tạo
+              nội dung số.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="year">Quá trình học tập</div>
+            <h3>📚 Phát triển kỹ năng</h3>
+            <p>
+              Bên cạnh kiến thức chuyên môn, mình chủ động tìm hiểu và thực hành
+              các công cụ số như Microsoft Office, Canva, CapCut, Google Sites
+              và GitHub.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="year">Định hướng</div>
+            <h3>🚀 Học hỏi và phát triển</h3>
+            <p>
+              Mình mong muốn tiếp tục nâng cao kiến thức về truyền thông,
+              thiết kế, công nghệ số và xây dựng các sản phẩm sáng tạo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHUYÊN MÔN -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-title">
+          <div class="small">03 • Skills</div>
+          <h2>Lĩnh vực chuyên môn</h2>
+          <p>Những kỹ năng và công cụ mình đang học hỏi, thực hành.</p>
+        </div>
+
+        <div class="skills">
+          <div class="skill-card">
+            <div class="skill-icon">🎨</div>
+            <h3>Thiết kế nội dung số</h3>
+            <p>
+              Tìm hiểu về thiết kế infographic, hình ảnh và nội dung trực quan
+              bằng các công cụ như Canva.
+            </p>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">🎬</div>
+            <h3>Biên tập video</h3>
+            <p>
+              Thực hành tạo và chỉnh sửa video ngắn, sắp xếp nội dung,
+              hình ảnh, âm thanh và hiệu ứng bằng CapCut.
+            </p>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">💻</div>
+            <h3>Tin học văn phòng</h3>
+            <p>
+              Sử dụng Microsoft Word, Excel, PowerPoint, Google Docs
+              và Google Sheets cho học tập.
+            </p>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">🌐</div>
+            <h3>Thiết kế Website</h3>
+            <p>
+              Làm quen với HTML, CSS, Google Sites và GitHub Pages để xây dựng
+              các trang web cá nhân cơ bản.
+            </p>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">🤖</div>
+            <h3>Công nghệ AI</h3>
+            <p>
+              Ứng dụng các công cụ AI để hỗ trợ tìm hiểu kiến thức,
+              phát triển ý tưởng và sáng tạo nội dung.
+            </p>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">📱</div>
+            <h3>Công nghệ số</h3>
+            <p>
+              Quan tâm đến các công cụ và nền tảng số phục vụ học tập,
+              truyền thông và sáng tạo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KINH NGHIỆM -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-title">
+          <div class="small">04 • Experience</div>
+          <h2>Kinh nghiệm</h2>
+          <p>Những trải nghiệm và sản phẩm mình đã thực hành trong quá trình học tập.</p>
+        </div>
+
+        <div class="experience">
+          <div class="card">
+            <h3>📝 Tin học văn phòng</h3>
+            <ul>
+              <li>Soạn thảo và định dạng tài liệu bằng Word.</li>
+              <li>Xử lý, lọc và thống kê dữ liệu bằng Excel.</li>
+              <li>Thiết kế bài thuyết trình bằng PowerPoint.</li>
+              <li>Sử dụng Google Docs và Google Sheets.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>🎨 Thiết kế nội dung</h3>
+            <ul>
+              <li>Thiết kế infographic bằng Canva.</li>
+              <li>Tạo nội dung trực quan phục vụ học tập.</li>
+              <li>Chỉnh sửa hình ảnh cơ bản.</li>
+              <li>Tìm hiểu tài nguyên hình ảnh miễn phí.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>🎬 Sản xuất video</h3>
+            <ul>
+              <li>Tạo video ngắn giới thiệu chủ đề.</li>
+              <li>Chỉnh sửa video bằng CapCut.</li>
+              <li>Kết hợp hình ảnh, âm thanh và chữ.</li>
+              <li>Tìm hiểu nguồn tài nguyên miễn phí bản quyền.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>🌐 Sản phẩm Web</h3>
+            <ul>
+              <li>Xây dựng trang giới thiệu cá nhân.</li>
+              <li>Làm quen với HTML và CSS.</li>
+              <li>Thực hành GitHub Pages.</li>
+              <li>Quản lý và lưu trữ sản phẩm trên GitHub.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SỞ THÍCH -->
+    <section id="hobbies">
+      <div class="container">
+        <div class="section-title">
+          <div class="small">05 • Hobbies</div>
+          <h2>Sở thích</h2>
+          <p>Những hoạt động mình yêu thích trong thời gian rảnh.</p>
+        </div>
+
+        <div class="hobbies">
+          <div class="hobby">
+            <span class="emoji">🎧</span>
+            <h3>Nghe nhạc</h3>
+            <p>
+              Âm nhạc giúp mình thư giãn và tạo cảm hứng sau những giờ học tập.
+            </p>
+          </div>
+
+          <div class="hobby">
+            <span class="emoji">🎬</span>
+            <h3>Xem phim</h3>
+            <p>
+              Mình thích xem phim để giải trí và khám phá những câu chuyện mới.
+            </p>
+          </div>
+
+          <div class="hobby">
+            <span class="emoji">🎮</span>
+            <h3>Chơi game</h3>
+            <p>
+              Chơi game là một hoạt động giúp mình thư giãn và giải trí
+              trong thời gian rảnh.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THÀNH TÍCH -->
+    <section id="achievements">
+      <div class="container">
+        <div class="section-title">
+          <div class="small">06 • Achievements</div>
+          <h2>Thành tích cá nhân</h2>
+          <p>Một số kết quả và sản phẩm trong quá trình học tập.</p>
+        </div>
+
+        <div class="achievement">
+          <h3>🏆 Đang tiếp tục xây dựng</h3>
+          <p>
+            Mình đang trong quá trình học tập và tích lũy thêm các thành tích,
+            chứng chỉ và sản phẩm cá nhân. Phần này sẽ được cập nhật khi có
+            những thành tích mới.
+          </p>
+
+          <div class="coming-soon">✨ Coming soon</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIÊN HỆ -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-title">
+          <div class="small">07 • Contact</div>
+          <h2>Liên hệ</h2>
+          <p>Thông tin liên hệ và các kênh cá nhân.</p>
+        </div>
+
+        <div class="contact-box">
+          <h2>Cảm ơn bạn đã ghé thăm! 💙</h2>
+          <p>
+            Nếu muốn liên hệ với mình, bạn có thể gửi email qua địa chỉ bên dưới.
+          </p>
+
+          <a class="email" href="mailto:thuB2605378@student.ctu.edu.vn">
+            📧 thuB2605378@student.ctu.edu.vn
+          </a>
+
+          <p>
+            GitHub: Chưa cập nhật
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 <span class="brand-name">Lê Anh Thư</span> • Personal Website • Đại học Cần Thơ
+  </footer>
+
+</body>
+
+</html>
